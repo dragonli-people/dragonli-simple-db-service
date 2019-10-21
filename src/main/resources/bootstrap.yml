@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: micro-service
+  profiles:
+    active: ${PROFILES:native}
+  cloud:
+    config:
+      uri: ${CONFIG_SERVER:http://192.168.7.101:8888}
+      fail-fast: true
+
+service:
+  general:
+    redis-open: true
