@@ -4,7 +4,7 @@
 
 	<parent>
 		<groupId>org.dragonli.service</groupId>
-		<artifactId>service-parent</artifactId>
+		<artifactId>dubbo-service-parent</artifactId>
 		<version>1.0</version>
 	</parent>
 
