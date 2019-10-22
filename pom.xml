@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.dragonli.service</groupId>
 		<artifactId>dubbo-service-parent</artifactId>
-		<version>1.0</version>
+		<version>1.0.1</version>
 	</parent>
 
 	<artifactId>dragonli-simple-db-service</artifactId>
