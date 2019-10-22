@@ -31,6 +31,6 @@ public class DbServiceApplication extends DubboApplicationBase {
 	final Logger logger = Logger.getLogger(getClass());
 
 	public static void main(String[] args) {
-		SpringApplication.run(org.dragonli.service.db.service.DbServiceApplication.class, args);
+		SpringApplication.run(DbServiceApplication.class, args);
 	}
 }

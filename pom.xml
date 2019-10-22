@@ -8,9 +8,9 @@
 		<version>1.0</version>
 	</parent>
 
-	<artifactId>dragonli-db-service</artifactId>
+	<artifactId>dragonli-simple-db-service</artifactId>
 	<packaging>jar</packaging>
-	<name>dragonli-db-service</name>
+	<name>dragonli-simple-db-service</name>
 	<version>1.0</version>
 
 	<dependencies>
@@ -19,7 +19,6 @@
 			<artifactId>dragonli-db-core</artifactId>
 			<version>1.0</version>
 		</dependency>
-
 	</dependencies>
 
 	<build>
