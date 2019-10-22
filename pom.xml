@@ -8,9 +8,9 @@
 		<version>1.0</version>
 	</parent>
 
-	<artifactId>dragonli-netty-service</artifactId>
+	<artifactId>dragonli-db-service</artifactId>
 	<packaging>jar</packaging>
-	<name>dragonli-netty-service</name>
+	<name>dragonli-db-service</name>
 	<version>1.0</version>
 
 	<dependencies>
@@ -22,5 +22,7 @@
 
 	</dependencies>
 
-
+	<build>
+		<finalName>db-service</finalName>
+	</build>
 </project>
