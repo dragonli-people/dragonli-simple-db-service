@@ -27,8 +27,25 @@ public class DbServiceImpl extends DbCore {
     @Value("${DATA_SOURCE_CONFIG_LIST_PATH:}")
     private String dataSourceConfigListPath;
 
+    @Value("${service.general.db-config.redisKey:}")
+    String redisKey;
+    @Value("${service.general.db-config.defaultDbName:}")
+    String defaultDbName;
+    @Value("${service.general.db-config.autoUpdateTableName:db_service_update}")
+    String autoUpdateTableName;
+    @Value("${service.general.db-config.primaryKey:id}")
+    String primaryKey;
+    @Value("${service.general.db-config.versionKey:version}")
+    String versionKey;
+    @Value("${service.general.db-config.tableNameTag:__TABLE_NAME}")
+    String tableNameTag;
+
     @PostConstruct
     public void initService() throws Exception {
+        redisKey = redisKey !=null && !"".equals(redisKey=redisKey.trim()) ? redisKey : null;
+        defaultDbName = defaultDbName !=null && !"".equals(defaultDbName=defaultDbName.trim()) ? defaultDbName : null;
+        this.initGenralConfig(redisKey,defaultDbName,autoUpdateTableName,primaryKey,versionKey,tableNameTag);
+
         if (null != dataSourceConfigValue && !"".equals(dataSourceConfigValue = dataSourceConfigValue.trim()) &&
                 dataSourceConfigPathSeparator != null &&
                 !"".equals(dataSourceConfigPathSeparator = dataSourceConfigPathSeparator.trim()))
