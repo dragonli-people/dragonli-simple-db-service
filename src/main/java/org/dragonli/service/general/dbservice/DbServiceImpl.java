@@ -28,23 +28,24 @@ public class DbServiceImpl extends DbCore {
     private String dataSourceConfigListPath;
 
     @Value("${service.general.db-config.redisKey:}")
-    String redisKey;
+    String redisKeyValue;
     @Value("${service.general.db-config.defaultDbName:}")
-    String defaultDbName;
+    String defaultDbNameValue;
     @Value("${service.general.db-config.autoUpdateTableName:db_service_update}")
-    String autoUpdateTableName;
+    String autoUpdateTableNameValue;
     @Value("${service.general.db-config.primaryKey:id}")
-    String primaryKey;
+    String primaryKeyValue;
     @Value("${service.general.db-config.versionKey:version}")
-    String versionKey;
+    String versionKeyValue;
     @Value("${service.general.db-config.tableNameTag:__TABLE_NAME}")
-    String tableNameTag;
+    String tableNameTagValue;
 
     @PostConstruct
     public void initService() throws Exception {
-        redisKey = redisKey !=null && !"".equals(redisKey=redisKey.trim()) ? redisKey : null;
-        defaultDbName = defaultDbName !=null && !"".equals(defaultDbName=defaultDbName.trim()) ? defaultDbName : null;
-        this.initGenralConfig(redisKey,defaultDbName,autoUpdateTableName,primaryKey,versionKey,tableNameTag);
+        redisKeyValue = redisKeyValue !=null && !"".equals(redisKeyValue=redisKeyValue.trim()) ? redisKeyValue : null;
+        defaultDbNameValue = defaultDbNameValue !=null && !"".equals(
+                defaultDbNameValue = defaultDbNameValue.trim()) ? defaultDbNameValue : null;
+        this.initGeneralConfig(redisKeyValue, defaultDbNameValue,autoUpdateTableNameValue,primaryKeyValue,versionKeyValue,tableNameTagValue);
 
         if (null != dataSourceConfigValue && !"".equals(dataSourceConfigValue = dataSourceConfigValue.trim()) &&
                 dataSourceConfigPathSeparator != null &&

@@ -1,13 +1,15 @@
 spring:
   application:
-    name: micro-service
+    name: ${CONFIG_APP_NAME:service-config}
   profiles:
-    active: ${PROFILES:native}
+    active: ${EVN:dev}
   cloud:
     config:
-      uri: ${CONFIG_SERVER:http://192.168.7.101:8888}
-      fail-fast: true
+      uri: ${CONFIG_SERVER:http://192.168.7.109:8888}
 
 service:
   general:
     redis-open: true
+
+DATA_SOURCE_CONFIG: data-source-configs.db1;data-source-configs.db2
+DATA_SOURCE_CONFIG_SEPARATOR: ;
