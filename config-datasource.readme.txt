@@ -35,13 +35,18 @@ data-source-configs:
         (type和data-config这两个tag可以修改，参见dragonli-java-tools项目中的readme)
 
 其次，撷取若干个数据源形成一个集合，以某种格式向项目提供配置，即可完成数据源的配置。这有两种方式：
-1 以一个包含分隔符的字符串的方式，即以一个字符串提供配置。具体方法是在启动参数指定 --DATA_SOURCE_CONFIG ，例，按上面的配置则应是：
-    -DDATA_SOURCE_CONFIG=data-source-configs.datasource1;data-source-configs.datasource2
-    并为刚才的字符串配置分隔符，如上例的分隔符是分号，则设置启动参数 -DDATA_SOURCE_CONFIG_SEPARATOR=;
+1 以一个包含分隔符的字符串的方式，即以一个字符串提供配置。具体方法mvn编译时加入参数，如一点点所示：
+mvn \
+-DDATA_SOURCE_CONFIG="data-source-configs.datasource1;data-source-configs.datasource2" \
+-DDATA_SOURCE_CONFIG_SEPARATOR=";" \
+clean install
+(-DDATA_SOURCE_CONFIG_SEPARATOR=";"是指明分隔符)
 
 2 另有一种看上去更优雅的方式。即以列表的方式设置数据源。此途径需要先在配置中心同时还配置列表节点：
         datasourceList1:
           - data-source-configs.datasource1
           - data-source-configs.datasource2
-        则此时设置一个启动参数 -DDATA_SOURCE_CONFIG_LIST_PATH即可。例，按上面的配置应为：
-        -DDATA_SOURCE_CONFIG_LIST_PATH=datasourceList1
+        mvn编译时设置参数 -DDATA_SOURCE_CONFIG_LIST_PATH即可。例：
+mvn \
+-DDATA_SOURCE_CONFIG_LIST_PATH="datasourceList1"
+clean install
