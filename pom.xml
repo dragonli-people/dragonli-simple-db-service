@@ -13,6 +13,11 @@
 	<name>dragonli-simple-db-service</name>
 	<version>1.0</version>
 
+	<properties>
+		<DATA_SOURCE_CONFIG></DATA_SOURCE_CONFIG>
+		<DATA_SOURCE_CONFIG_SEPARATOR></DATA_SOURCE_CONFIG_SEPARATOR>
+	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.dragonli.service</groupId>
@@ -23,5 +28,34 @@
 
 	<build>
 		<finalName>db-service</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>default-resources</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>target/classes</outputDirectory>
+							<useDefaultDelimiters>false</useDefaultDelimiters>
+							<delimiters><delimiter>@</delimiter></delimiters>
+							<resources>
+								<resource>
+									<directory>src/main/resources/</directory>
+									<filtering>true</filtering>
+									<includes>
+										<include>**/bootstrap.yml</include>
+									</includes>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
 	</build>
 </project>

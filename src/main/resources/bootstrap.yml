@@ -11,5 +11,10 @@ service:
   general:
     redis-open: true
 
+# for debug
 #DATA_SOURCE_CONFIG: data-source-configs.db1;data-source-configs.db2
 #DATA_SOURCE_CONFIG_SEPARATOR: ;
+
+# for package
+DATA_SOURCE_CONFIG: @DATA_SOURCE_CONFIG@
+DATA_SOURCE_CONFIG_SEPARATOR: @DATA_SOURCE_CONFIG_SEPARATOR@
